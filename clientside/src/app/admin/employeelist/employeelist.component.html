@@ -1,0 +1,68 @@
+<app-nav-bar-admin></app-nav-bar-admin>
+<div id="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <h3>Employee List</h3>
+        <hr>
+        <div class='col-md-2'>Filter by:</div>
+        <div class='col-md-4'>
+          <input type='text' [(ngModel)]='listFilter' />
+        </div>
+        <div class='row' *ngIf='listFilter'>
+          <div class='col-md-6'>
+            <h4>Filtered by: {{listFilter}}</h4>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+              <button class="btn btn-outline-primary btn-sm" [routerLink]="[ 0, 'edit']">
+                <i class="fa fa-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Date of Joining</th>
+                <th>Date of Birth</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let employee of FilterEmployee">
+                <td>{{ employee.name }}</td>
+                <td>
+                  {{employee.email}}
+                </td>
+                <td>{{employee.doj}}</td>
+                <td>{{employee.dob}}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-primary btn-sm">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"
+                      [routerLink]="[employee.id, 'edit']"></i>
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="onDelete(employee)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><br><br>
+    </div>
+  </div>
+</div>

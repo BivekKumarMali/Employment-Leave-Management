@@ -1,0 +1,14 @@
+.login .container{
+    margin-top: 500px;
+    max-width: 500px;
+    height: 320px;
+}
+#login h3{
+    margin-top: 55px;
+}
+hr {
+    border: none;
+    height: 1px;
+    background-color: #333;
+}
+

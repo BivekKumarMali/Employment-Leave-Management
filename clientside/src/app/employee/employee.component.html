@@ -1,0 +1,27 @@
+<div id="login">
+    <h3 class="text-center">Employee Login</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" #form="ngForm" (ngSubmit)="onSubmit(form)" ngNativeValidate>
+                        <div class="form-group">
+                            <label for="email" class="text-info">Email</label>
+                            <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                            class="form-control" ngModel (ngModelChange)="available($event)" placeholder="Enter Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" ngModel
+                            placeholder="Type anything" required>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary">Login</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

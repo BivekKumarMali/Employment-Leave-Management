@@ -1,0 +1,28 @@
+#login .container #login-row #login-column #login-box {
+    margin-top: 50px;
+    max-width: 500px;
+    height: 320px;
+  }
+  #login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+  }
+  #login h3{
+      margin-top: 50px;
+  }
+  #login button{
+      background-color: slateblue;
+      float: right;
+  }
+  #login label{
+      color: slateblue;
+  }
+  .field-error{
+      border: 1px solid red;
+  }
+  .Warning{
+      border: 2px red;
+      background-color: black;
+      color: yellow;
+      font-size: x-large;
+  }
+  

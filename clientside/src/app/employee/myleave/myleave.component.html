@@ -1,0 +1,51 @@
+<app-nav-bar-employee></app-nav-bar-employee>
+<div id="login">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+          <h3>My Leave</h3>
+          <hr>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10"><p><b>Leave Balance</b></p></div>
+              <div class="col-md-2">
+                <button class="btn btn-outline-primary btn-sm" (click)="NewLeave()">
+                  <i class="fa fa-plus"></i> Apply
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2"  *ngFor="let l of Leaves"><p>{{l.name}}:{{l.maxleavesallowed}}</p></div>
+            </div>
+          </div>
+          <br>
+          <div class="table-responsive">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Leave Dates</th>
+                  <th>Leave Type</th>
+                  <th>Number of Days</th>
+                  <th>Status</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let l of MyLeave">
+                  <td>{{l.leavedate}}</td>
+                  <td>
+                    {{l.leavetype}}
+                  </td>
+                  <td>{{l.days}}</td>
+                  <td>{{l.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div><br><br>
+      </div>
+    </div>
+  </div>

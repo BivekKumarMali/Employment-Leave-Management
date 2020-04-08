@@ -1,0 +1,58 @@
+<app-nav-bar-admin></app-nav-bar-admin>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+<div id="login">
+    <h3>{{pageTitle}}</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" #form="ngForm" (ngSubmit)="saveEmployee()" ng-controller="DateController as dateCtrl" ngNativeValidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" [(ngModel)]="employee.name" minlength="3"
+                            class="form-control" required>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  [(ngModel)]="employee.email"
+                            class="form-control" required   (ngModelChange)="available($event)" [disabled]='!mail'>
+                            <div [hidden]="availability"
+                            class="alert alert-warning">
+                            Email Already In use</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" minlength="8" required [(ngModel)]="employee.password">
+                        </div>
+                        
+                        <div class="md-form">
+                            <label for="dob">Date of Birthday</label>
+                            <input type="date" id="dob" name="dob" class="form-control" [(ngModel)]="employee.dob" min="1985-12-31"
+                            max="2000-12-31"  required>
+                            
+                          </div>
+                          <div class="md-form">
+                            <label for="doj">Date of Joining</label>
+                            <input type="date" id="doj" name="doj" class="form-control datepicker" [(ngModel)]="employee.doj" min="2000-12-31"><br>
+                          </div>
+                        <div>
+                            <button class="btn btn-primary"
+                              >Save</button>
+                        </div>
+                        
+                    </form>
+                    
+                    <button style="margin:5px; color: white;" class="btn btn-outline-primary btn-sm" [routerLink]="['/admin/employees']">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

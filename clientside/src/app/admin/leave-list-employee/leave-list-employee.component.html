@@ -1,0 +1,72 @@
+<app-nav-bar-admin></app-nav-bar-admin>
+<div id="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-11">
+        <h3>Leave List</h3>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class='col-md-3'>
+                    <p>Name</p>
+                </div>
+                <div class='col-md-3'>
+                    <p>Leave</p>
+                  </div>
+                
+                </div>
+          <div class="row">
+        <div class='col-md-3'>
+            <select id="searchEmployee" class="form-control" value="name" name="NameList" [(ngModel)]="searchEmployee"  (ngModelChange)="onNameChange($event)" required>
+                <option></option>
+                <option *ngFor="let e of Name">{{e}}</option>
+            </select>
+        </div>
+        <div class='col-md-3'>
+            <select id="searchLeave" class="form-control" name="LeaveList" [(ngModel)]="searchLeave" (ngModelChange)="onLeaveChange($event)" required>
+                <option></option>
+                <option *ngFor="let e of Leave">{{e}}</option>
+            </select>
+          </div>
+        
+        </div>
+        <br>
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead>
+              <tr>
+                <th>Employee Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Leave</th>
+                <th>Leave Type</th>
+                <th>Number of Days</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let e of EmployeeLeave">
+                <td>{{ e.EmployeeName }}</td>
+                <td>{{e.StartDate}}</td>
+                <td>{{e.EndDate}}</td>
+                <td>{{e.Leave}}</td>
+                <td>{{e.LeaveType}}</td>
+                <td>{{e.NumberOfDays}}</td>
+                <td>{{e.Status}}</td>
+                <td>
+                    <select id="Actions" class="form-control" name="Actions" [(ngModel)]="e.Status"  (ngModelChange)="onChange($event,e.id)" required>
+                        <option>Approved</option>
+                        <option>Rejected</option>
+                </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><br><br>
+    </div>
+  </div>
+</div>
+</div>

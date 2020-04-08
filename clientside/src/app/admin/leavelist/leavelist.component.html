@@ -1,0 +1,55 @@
+<app-nav-bar-admin></app-nav-bar-admin>
+<div id="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <h3>Leave Configuration</h3>
+        <hr>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+              <button class="btn btn-outline-primary btn-sm" [routerLink]="[0, 'edit']">
+                <i class="fa fa-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead>
+              <tr>
+                <th>Leave Name</th>
+                <th>Number of Days</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let l of leave">
+                <td>{{ l.name }}</td>
+                <td>
+                  {{l.maxleavesallowed}}
+                </td>
+                <td>
+                  <button type="button" class="btn btn-outline-primary btn-sm">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"
+                      [routerLink]="[l.id, 'edit']"></i>
+                  </button>
+                </td>
+                <td>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="onDelete(l)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                <!--    <button (click)="CheckEmployeeLeave(l.id)" >Save        --></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><br><br>
+    </div>
+  </div>
+</div>

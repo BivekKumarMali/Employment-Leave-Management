@@ -1,0 +1,56 @@
+<app-nav-bar-employee></app-nav-bar-employee>
+<div id="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <h3>My Profile</h3>
+        <br><hr>
+        <div class="container" [hidden]=(WrongEmail)>
+            <div class="row ">
+              
+      <div class="col-md-1">
+      </div>
+                <div class="col-md-4">  </div>
+                <div class="col-md-4">
+                    <h4>Email does not exists!!!! <br>Try Login Again!!!!</h4>
+                </div>
+            </div>
+            <div class="row ">
+              
+      <div class="col-md-1">
+      </div>
+                <div class="col-md-4">  </div>
+                <div class="col-md-4">
+                    <button class="btn btn-warning"  [routerLink]="['/employee']"> Log in</button>
+                </div>
+            </div>
+        </div> 
+        <div class="container" [hidden]=(!WrongEmail) >
+          <div class="row ">
+            <div class="col-md-6">
+                <h5><b>Name</b>: {{profile.name}}</h5>
+            </div>
+            <div class="col-md-6">
+                <h5><b>Date of Joining</b>: {{profile.doj}} </h5>
+              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+                <h5><b>Email</b>: {{profile.email}}</h5>
+            </div>
+            <div class="col-md-6">
+                <h5><b>Date of Birth</b>: {{profile.dob}}</h5>
+              
+            </div>
+          </div>
+        </div>
+        <br>
+        
+    </div> 
+      
+    </div>
+  </div>
+</div>
