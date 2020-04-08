@@ -39,21 +39,27 @@ export class LeaveListEmployeeComponent implements OnInit {
               private router: Router) { }
 
   onNameChange(Name:string){
-    this.EmployeeLeave = Name ? this.performFilterByName(Name) : this.EmployeeL;
-
+    this.EmployeeLeave = this.performFilterByName(Name);
+ 
   }
   onLeaveChange(Name:string){
-    this.EmployeeLeave = Name ? this.performFilterByLeave(Name) : this.EmployeeL;
+    this.EmployeeLeave = this.performFilterByLeave(Name);
+    
+    
   }
-  
+  filterlist: employeeleave[]=[]
   performFilterByLeave(filterBy: string): employeeleave[] {
-    return this.EmployeeL.filter((employee: employeeleave) =>
+    this.filterlist = this.EmployeeL.filter((employee: employeeleave) =>
       employee.LeaveType.indexOf(filterBy) !== -1);
+    return this.filterlist.filter((employee: employeeleave) =>
+    employee.EmployeeName.indexOf(this.searchEmployee) !== -1);
   }
 
   performFilterByName(filterBy: string): employeeleave[] {
-    return this.EmployeeL.filter((employee: employeeleave) =>
+    this.filterlist = this.EmployeeL.filter((employee: employeeleave) =>
       employee.EmployeeName.indexOf(filterBy) !== -1);
+    return  this.filterlist.filter((employee: employeeleave) =>
+      employee.LeaveType.indexOf(this.searchLeave) !== -1);
   }
 
   onChange(status:string,id:number){
